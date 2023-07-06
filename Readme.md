@@ -1,11 +1,7 @@
-	Open Sorce SoftWare Memo
-
-				201820715 유성수
-		
------------------- 9월16일 수업 ------------------
+	#Open Sorce SoftWare Memo		
 
 ls -al 습관적으로 쳐야함, 내가 어디에있는지? 무슨파일이 있는지?
-control + G -> 띠링소라
+control + G -
 cd -> 홈 디렉토리
 touch 파일 만들기
 cat -> 파일 두개를 병합
@@ -19,98 +15,17 @@ link -->바로가기랑 비슷
 
 파일의 소유자 ,소유 그룹, 파일크기 byte ,마지막으로 modify 된 날짜, 파일이름
 
-oss038@git:~/foss_lab/lab0916$ ls file.txt file.c
-ls: cannot access 'file.c': No such file or directory #첫번째
-file.txt #두번째
-
 첫번째줄 어디에 출력? std err
+
 두번째줄 어디에 출력? std output 디바이스
 
  mv dir2 test_dir  --> dir2의 이름을 test_dir로 변경하는 명령어
  mv dir3 test_dir  --> dir3라는 디렉토리를 test_dir이라는 디렉토리로 옮긴다.
  mv file2.txt file3.txt test --> file2.txt 와 file3.txt를 test 디렉토리로 옮긴다
 
-oss038@git:~/foss_lab/lab0916$ rm file.txt test2.txt --> 파일삭제
-rm: cannot remove 'test2.txt': No such file or directory  --> file.txt는 있으니까 삭제 test2.txt는 없으니 오류
-oss038@git:~/foss_lab/lab0916$ echo fmkewfk > link1
-oss038@git:~/foss_lab/lab0916$ ls- al
-total 20
-drwxr-xr-x 3 oss038 foss 4096  9월 17 02:05 .
-drwxr-xr-x 3 oss038 foss 4096  9월 16 20:46 ..
--rw-r--r-- 2 oss038 foss    8  9월 17 02:06 file.txt
--rw-r--r-- 2 oss038 foss    8  9월 17 02:06 link1
-drwxr-xr-x 2 oss038 foss 4096  9월 17 01:57 test
--rw-r--r-- 1 oss038 foss    0  9월 17 01:59 test4.txt
-oss038@git:~/foss_lab/lab0916$ ls
-file.txt  link1  test  test4.txt
-oss038@git:~/foss_lab/lab0916$ ls -a
-.  ..  file.txt  link1  test  test4.txt
-oss038@git:~/foss_lab/lab0916$ ls-a;
-ls-a: command not found
-oss038@git:~/foss_lab/lab0916$ ls -al
-total 20
-drwxr-xr-x 3 oss038 foss 4096  9월 17 02:05 .
-drwxr-xr-x 3 oss038 foss 4096  9월 16 20:46 ..
--rw-r--r-- 2 oss038 foss    8  9월 17 02:06 file.txt
--rw-r--r-- 2 oss038 foss    8  9월 17 02:06 link1
-drwxr-xr-x 2 oss038 foss 4096  9월 17 01:57 test
--rw-r--r-- 1 oss038 foss    0  9월 17 01:59 test4.txt
-oss038@git:~/foss_lab/lab0916$ cat link1
-fmkewfk
-oss038@git:~/foss_lab/lab0916$ cat file.txt
-fmkewfk
-oss038@git:~/foss_lab/lab0916$ ls -ali
-total 20
-24907688 drwxr-xr-x 3 oss038 foss 4096  9월 17 02:05 .
-24907687 drwxr-xr-x 3 oss038 foss 4096  9월 16 20:46 ..
-24907689 -rw-r--r-- 2 oss038 foss    8  9월 17 02:06 file.txt ->8 같아야
-24907689 -rw-r--r-- 2 oss038 foss    8  9월 17 02:06 link1  ->8
-24907692 drwxr-xr-x 2 oss038 foss 4096  9월 17 01:57 test
-24907712 -rw-r--r-- 1 oss038 foss    0  9월 17 01:59 test4.txt
- 
- 24907688 drwxr-xr-x 3 oss038 foss 4096  9월 17 02:10 .
-24907687 drwxr-xr-x 3 oss038 foss 4096  9월 16 20:46 ..
-24907689 -rw-r--r-- 2 oss038 foss    8  9월 17 02:06 file.txt
-24907689 -rw-r--r-- 2 oss038 foss    8  9월 17 02:06 link1
-24907695 lrwxrwxrwx 1 oss038 foss    8  9월 17 02:10 slink1 -> file.txt  --> 소프트링크 or 심볼릭 링크
-24907692 drwxr-xr-x 2 oss038 foss 4096  9월 17 01:57 test
-24907712 -rw-r--r-- 1 oss038 foss    0  9월 17 01:59 test4.txt
-oss038@git:~/foss_lab/lab0916$
-
-ln -s ../../foss_lab/lab0916/file.txt slink2  -> 윗 디렉토리에 올라가서 foss_lab에 가서 lab0916에 가서 file.txt를 slink로 만듭니다.
-
 심볼릭은 데스티네이션 파일이 존재하지않아도 만들 수 있음
 
-
-oss038@git:~/foss_backup$ ls -al
-total 12
-drwxr-xr-x 3 oss038 foss 4096  9월 16 20:46 .
-drwx------ 9 oss038 foss 4096  9월 17 02:20 ..
-drwxr-xr-x 3 oss038 foss 4096  9월 17 02:19 lab0916
-oss038@git:~/foss_backup$ cd lab0916
-oss038@git:~/foss_backup/lab0916$ ls -al
-total 32
-drwxr-xr-x 3 oss038 foss  4096  9월 17 02:19 .
-drwxr-xr-x 3 oss038 foss  4096  9월 16 20:46 ..
--rw------- 1 oss038 foss 12288  9월 17 02:17 .file123.txt.swp
--rw-r--r-- 2 oss038 foss     8  9월 17 02:06 file.txt
--rw-r--r-- 2 oss038 foss     8  9월 17 02:06 link1
-lrwxrwxrwx 1 oss038 foss     7  9월 17 02:19 link2 -> file123
-lrwxrwxrwx 1 oss038 foss     8  9월 17 02:10 slink1 -> file.txt
-lrwxrwxrwx 1 oss038 foss    31  9월 17 02:12 slink2 -> ../../foss_lab/lab0916/file.txt
-lrwxrwxrwx 1 oss038 foss    34  9월 17 02:15 slink3 -> ../../foss_lab/lab0916/file123.txt
-drwxr-xr-x 2 oss038 foss  4096  9월 17 01:57 test
--rw-r--r-- 1 oss038 foss     0  9월 17 01:59 test4.txt
-oss038@git:~/foss_backup/lab0916$
-
-slink1은 file.txt 를 가르키지만 slink2는 원본파일에있는 파일을 가르킨다
-
-oss038@git:/home/course/foss/oss000/www$ ls -ald .
-d---rwxrw- 3 oss000 foss 4096  9월 17 02:36 .  --> 이 파일에 대한 퍼미션을 설명하시오
-
 .디렉토리에 오너인 oss000은 읽을수도 쓸수도 들어갈수도 없습니다. foss에 속한 사용자들은 읽을수도 쓸수도 있습니다. 나머지사람은은 read write 만 하고 디렉토리에 들어갈 수는 없다.
-
------------------- 9월21일 수업 ------------------
 
 std input 
 
@@ -174,17 +89,11 @@ history - 내가 썻던 명령어
 
 popd - 나의 디렉토리로 돌아가기
 
------------------- 9월27일 수업 ------------------
-
 root 밑 - 절대위치
 
 터미널 실행 std out in err  softlink형태
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f54f2e53-814a-443e-b0c0-74be4df98adc/Untitled.png)
 
-이 그림 시험에 나옴
-
-c코드가 정상적으로 실행되면 echo true 아니면 echo false 를 짜라. 중간고사
 
 echo $? - 0이나오면 에러없이 실행,  1이 나오면 1번 에러가있음
 
@@ -194,30 +103,10 @@ oss038@git:~/foss_lab$ mkdir lab0926 && cd lab0926 엔드로 묶으면 앞이 �
 
 oss038@git:~/foss_lab$ mkdir lab0926 || cd lab0926 오어로 묶으면  앞이 false여도 뒤의 걸 실행하세요~
 
-ps라고 썻더니
 
-oss038@git:~/foss_lab/lab0926$ ps
-PID TTY          TIME CMD
-1953156 pts/47   00:00:00 bash
-1954571 pts/47   00:00:00 ps
-oss038@git:~/foss_lab/lab0926$ bash  —>bash가 하나 추가됫네?
-oss038@git:~/foss_lab/lab0926$ ps
-PID TTY          TIME CMD
-1953156 pts/47   00:00:00 bash
-1955027 pts/47   00:00:00 bash
-1955083 pts/47   00:00:00 ps
-
-bash lsli  → bash를 실행 후 
-
-결과가 이렇게 나왔다. ps를 치면 어떻게 나오나? → 중간고사
-
-디렉토리가 옮겨진다?
-
-bash와 같은 명령어 ( 새로운 shell을 연다)
 
 passwd : user accout의 비밀번호 변경
 
------------------- 9월28일 수업 ------------------
 
 ls * -내용물을 보여준다
 
@@ -229,7 +118,6 @@ touch - 파일의 생성과 파일의 날짜, 시간을 변경하는 명령어
 
 shopt
 
-l - symboloc link - 중간고사
 
 cat hello.c hello.c hello.c - hello.c의 내용을 3번 std output에 출력합니다.
 
@@ -241,9 +129,7 @@ wc - 줄 ,바이트, 단어개수 등등
 
 basic command file 숙지
 
------------------- 10월5일 수업 ------------------
-
-tar 중간고사 나옴
+tar 
 
 tar c 파일 만들기
 
@@ -263,8 +149,6 @@ bash 하고 엔터치면 bash라는 프로그렘을 실행하구요 프롬프트
 
 bash syntax 학습
 
------------------- 10월12일 수업 ------------------
-
 {    ;}
 
 띄어쓰기 매우 중요
@@ -275,32 +159,6 @@ change mode, source, () subshell
 
 기본적으로 value값은 string
 
-oss038@git:~/foss_lab/lab1012$ A=200
-oss038@git:~/foss_lab/lab1012$ ps
-PID TTY          TIME CMD
-931718 pts/1    00:00:00 bash
-946890 pts/1    00:00:00 ps
-oss038@git:~/foss_lab/lab1012$ bash
-oss038@git:~/foss_lab/lab1012$ echo $A
-
-oss038@git:~/foss_lab/lab1012$ ps
-PID TTY          TIME CMD
-931718 pts/1    00:00:00 bash
-946926 pts/1    00:00:00 bash
-946965 pts/1    00:00:00 ps
-oss038@git:~/foss_lab/lab1012$ exit
-exit
-oss038@git:~/foss_lab/lab1012$ export A
-oss038@git:~/foss_lab/lab1012$ bash
-oss038@git:~/foss_lab/lab1012$ echo $A
-200
-oss038@git:~/foss_lab/lab1012$ A=900
-oss038@git:~/foss_lab/lab1012$ echo $A
-900
-oss038@git:~/foss_lab/lab1012$ exit
-exit
-oss038@git:~/foss_lab/lab1012$ echo $A
-200
 
 bash에 따라 A값이 변화 여부 중간
 
@@ -310,19 +168,11 @@ Globing → 와일드카드를 써서 파일들을 선택
 
 shopt -s dotglob라는것을   꺼야한다.
 
-oss038@git:~/foss_lab/lab1012$ ls -a
-.  ..  .a  .aa  ...aaa  aaabbb  aabb  ab  [hello.sh](http://hello.sh/)
-oss038@git:~/foss_lab/lab1012$ ls *
-aaabbb  aabb  ab  [hello.sh](http://hello.sh/)                                         .이 안나옴
-oss038@git:~/foss_lab/lab1012$ ls -a *
-aaabbb  aabb  ab  [hello.sh](http://hello.sh/)                                         .이 안나옴
-oss038@git:~/foss_lab/lab1012$
-
 parameter expanstion 공부
 
 파일 1000개를 만드는 script를 쓰시오
 
-이 파일중에 03으로 시작하는파일들을 .c에서.java로 바꾸시오
+파일중에 03으로 시작하는파일들을 .c에서.java로 바꾸시오
 
 loop공부
 
@@ -338,27 +188,6 @@ jobs라고 쳣더니 %1, %2가 나왓다.
 
 fg %2
 
-oss038@git:~/foss_lab/lab1012$ source [hello.sh](http://hello.sh/)
-Sungsoo Yoo
-0 : -bash : : :
-oss038@git:~/foss_lab/lab1012$ fadd 100 200
-300
-oss038@git:~/foss_lab/lab1012$ fadd 100 300
-400
-oss038@git:~/foss_lab/lab1012$ echo $?
-100
-oss038@git:~/foss_lab/lab1012$ cat [hello.sh](http://hello.sh/)
-#! /bin/bash
-NAME="Sungsoo Yoo"
-echo $NAME
-echo $# : $0 : $1 : $2 : $3
-function fadd()
-{
-echo $(($1+$2))
-return 100
-}
-
------------------- 10월17일 수업 ------------------
 
 redirection
 
@@ -391,11 +220,10 @@ cd ~oss000 → oss000디렉토리로
 history
 
 ‘’  no ex
------------------- Bash 강의 메모 ------------------
 
 bash는 언어
 유저는 linux shell, 시스템 유틸리티, 커널 등을 통해 하드웨어로 접근
-하드웨어 시스템 (그림)공부
+하드웨어 시스템 
 pwd 현재 위치
 echo $A
 HOME variable이 지정한 경로로 갑니다
@@ -447,7 +275,6 @@ done
  파일이 있으면 덮어쓰고
 없으면 새로 만들어서 추가된다.
 
-------------------Mid Study Memo------------------
 
 cc hello.c 빌드
 
@@ -617,11 +444,6 @@ alias ls=“ls -al” 하면 ls 할 떄 기본적으로 -al 옵션을 붙여줌(
 
 -eq -ne -lt - le(작거나 같) -gt -ge 
 
------------------- 10월31일 수업 ------------------
-
-이론 중심으로 기말고사
-
-리눅스가 무엇? 유닉스가 무엇?
 
 BSD? GNU?
 
@@ -642,8 +464,6 @@ License(라이센스)
 복제 배포 수정의 권한을 주지 않으면 상업적 라이센스
 
 배포시 라이센스 사본첨부 → 이 sw는 이 라이센스를 사용 
-
------------------- 11월2일 수업 ------------------
 
 라이센스 → 두 당사자 사이에는 법적인 관계 존재 (라이센스 계약서)
 
@@ -675,9 +495,6 @@ std in std out std err이 만들어짐
 
 git 실습
 
------------------11월7일수업----------------
-
-기말 프로젝트에 교수님 라이센스 허용
 
 git 에 보고서 및 PPT파일 업로드
 
@@ -703,11 +520,6 @@ Git Status
 
 unstacked, unmodified, modified, staged
 
--------------------11월9일수업---------------------
-
-중간고사 문제의 절반이 기말고사에 나옴
-
-중간고사 풀이 영상 보기
 
 if문
 
@@ -752,7 +564,6 @@ git cheat-sheet - Git 용어 정리 시험에 나옴
 
 —global
 
--------------------------------11월14일-----------------------------
 
 cat [readme.md](http://readme.md) 현재 상태가 이와 같았다.
 
@@ -780,8 +591,6 @@ git —all log를 햇더니 이렇게 나왔다
 
 git clone
 
------------------11월16일-------------------
-
 Git command 숙지
 
 commit 순서 관련
@@ -801,8 +610,6 @@ git show 0000
 git log —follow 0000
 
 git checkout br_a
-
---------------------11월21일--------------------------
 
 rebase와 merge는 같은 의미지만 rebase는 history를 rewrith한다
 
